@@ -1,0 +1,20 @@
+<?php
+
+//poll.php
+
+include('config.php');
+
+if(isset($_POST["poll_option"]))
+{
+ $query = "
+ INSERT INTO tbl_poll 
+ (php_framework) VALUES (:php_framework)
+ ";
+ $data = array(
+  ':php_framework'  => $_POST["poll_option"]
+ );
+ $statement = $con->prepare($query);
+ $statement->execute($data);
+}
+
+?>
